@@ -1,0 +1,173 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IT 581 lab 14</title>
+    
+   <style type="text/css">
+    body {background-color: white; color: black; 
+            margin-left: 50px;
+            margin-right:50px; }
+    
+       input.button {
+	         border: solid 1px blue;
+	       }
+    
+   
+	    #reset{
+		
+		font-size:.875em;
+		padding:4px 2px;
+		border:solid 1px grey;
+		width: 80px;
+		margin-left:-582px;
+		margin-top:110px;
+
+		
+		
+		}
+		  h2{
+			  color: crimson;
+			 
+			  }
+			 
+		   th { font-size: 22px;
+		         font-family:Arial;
+		         padding:10px;
+		         
+			   }
+			   td{ font-size: 20px;
+			        text-align:center;
+			        }
+            #form {
+	                float:left;
+	                margin-left:-200px;
+	                margin-top:75px;
+	            }
+	    
+	    #message{
+		        float:left;
+		    }
+		    
+		    img {
+              float: left;
+              padding:20px;
+            }
+            
+          legend, p{
+	             font-size:17px;
+	             font-family:arial;
+	             font-weight:normal;
+	            }
+
+				      
+    
+  </style>
+  
+     
+
+  <!-- IT 581 Lab Exercise 14       -->
+  <!-- Author: Devendra Prasai                          -->
+  <!-- Date:     07/31/2015                        -->
+  <!-- Notes: Eagle-Beagle Shipping                      -->   
+    
+    
+</head>
+<body>
+<h1>Eagle-Beagle Shipping</h1>
+<p>Note: Use the swap_pic function. Change the picture back to the package
+ when the reset button is clicked.</p> 
+ 
+ 
+      <img src="package.jpg" id="quest" alt="package"/>
+  
+ 
+ 
+ <h2> Pricing: </h2>
+  
+   <table>
+   <tr> 
+   <th> Service </th> <th>Base charge </th>
+   
+   </tr>
+   <tr>
+   <td>Eagle</td><td id="val1">$17</td>
+   </tr>
+   <tr>
+   <td>Beagle</td><td id="val2">$12</td>
+   </tr>
+   </table>
+ 
+  
+ 
+ <div id="form">
+ 
+<form name="frmShipCal" action="">
+<fieldset>
+<legend>Eagle or Beagle ?</legend>
+<p> Select a shipping method: <br/>
+       <input type="radio" name="ship" id="rad1" value="eagle" 
+        onclick=" swap_pic() "/>Eagle <br />
+        <input type="radio" name="ship" id="rad2" value="beagle" 
+         onclick=" swap_pic() "/>Beagle <br\>
+         </p>
+        <p>
+ <input type="button"
+         name="ship_method"
+         value="Tell me the Cost"
+         onclick="star()"
+       /> 
+         
+       </p>   
+       <script type="text/javascript">
+        function star(){   
+             if(document.getElementById('rad1').checked) {
+              var display = document.getElementById("val1").innerHTML;
+     			document.getElementById("message").value =
+     			"Shipping with method Eagle will cost you " + display + ".";
+          } 
+            else if (document.getElementById('rad2').checked)  {
+         	
+	           	 var display = document.getElementById("val2").innerHTML;
+     			document.getElementById("message").value = 
+     			"Shipping with method Beagle will cost you " + display + ".";
+      }
+    
+  }
+      </script>
+      
+      <script type="text/javascript">
+         
+      
+         function swap_pic() {
+	         
+	          	         
+	         if(document.getElementById('rad1').checked) {
+              document.images.quest.src='eagle.jpg';
+              }
+              else if (document.getElementById('rad2').checked) {
+              document.images.quest.src ='beagle.jpg';
+          }
+  }
+      
+      </script>
+      
+        
+      
+     <textarea id="message" name="message" rows="5" cols="70">
+     
+     </textarea>
+     <p>
+    <input id="reset" type="reset"  
+              onclick = "document.images.quest.src = 'package.jpg';"/>
+    </p>
+     
+            
+     </form>    
+         
+   </div>      
+  
+   </body>
+   </html>
